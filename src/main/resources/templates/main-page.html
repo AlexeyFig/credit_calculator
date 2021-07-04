@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit calculator</title>
+
+    <script src="/js/Vue2.6.14.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
+
+
+</head>
+<body>
+
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <span class="fs-4">Credit calculator</span>
+    </a>
+
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="" class="nav-link active" aria-current="page">Main</a></li>
+        <li class="nav-item"><a href="" class="nav-link">FAQ</a></li>
+        <li class="nav-item"><a href="" class="nav-link">About</a></li>
+    </ul>
+    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+</header>
+
+
+<div id="creditCalculator">
+
+    <div id="input-credit-data">
+        <div class="input-credit-data-block">
+            Сумма кредита:<br>
+            <b>{{currentCreditSum}} руб.</b><br>
+            <input type="range" name="cowbell" v-bind:min="minCreditSum" v-bind:max="maxCreditSum" v-model="currentCreditSum" step="10">
+        </div>
+        <div class="input-credit-data-block">
+            Срок кредита:<br>
+            <b>{{currentMonthAmount}} мес.</b><br>
+            <input type="range" name="cowbell" v-bind:min="minMonthAmount" v-bind:max="maxMonthAmount" v-model="currentMonthAmount" step="1">
+        </div>
+        <div class="input-credit-data-block">
+            Процентная ставка:<br>
+            <b>{{percentRate}} %</b><br><br>
+        </div>
+     </div>
+    <br>
+    <button class="css-button-calculate-credit" v-on:click="calculateCreditInformation">Рассчитать</button>
+
+
+    <div v-if="showPaymentData">
+
+        <div class="calculated-credit-data">
+            <div class="calculated-credit-data-block">
+                Месячный платеж:<br>
+                <b>{{monthPayment}} руб.</b><br>
+            </div>
+            <div class="calculated-credit-data-block">
+                Всего выплат:<br>
+                <b>{{totalSumPayments}} руб.</b><br>
+            </div>
+            <div class="calculated-credit-data-block">
+                переплата:<br>
+                <b>{{overPayment}} руб.</b><br>
+            </div>
+        </div>
+
+        <table class="simple-little-table">
+            <tr >
+                <th>№ </th>
+                <th>Месяц/год</th>
+                <th>Месячный платеж</th>
+                <th>Проценты</th>
+                <th>Тело Кредита</th>
+                <th>Остаток долга</th>
+            </tr>
+            <tr v-for="item in responseCreditData" :key="item.paymentNumber">
+            <td>{{item.numberOfPayment }}</td><td>{{ item.paymentDate }}</td><td>{{ item.monthPayment }}</td>
+            <td>{{ item.percentPayment }}</td><td>{{ item.bodyPayment }} </td><td>{{ item.sumOfDept }}</td>
+            </tr>
+        </table>
+
+        <br>
+        <br>
+        <br>
+    </div>
+
+
+</div>
+<script src="/js/VueApp.js"></script>
+</body>
+
+
+
+</html>
