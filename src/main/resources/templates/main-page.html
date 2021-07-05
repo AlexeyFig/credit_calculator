@@ -33,7 +33,7 @@
     <div id="input-credit-data">
         <div class="input-credit-data-block">
             Сумма кредита:<br>
-            <b>{{currentCreditSum}} руб.</b><br>
+            <input type="text" v-on:change="changeInputSum" v-model.number.trim="currentCreditSum" > руб.
             <input type="range" name="cowbell" v-bind:min="minCreditSum" v-bind:max="maxCreditSum" v-model="currentCreditSum" step="1000">
         </div>
         <div class="input-credit-data-block">
@@ -43,7 +43,7 @@
         </div>
         <div class="input-credit-data-block">
             Процентная ставка:<br>
-            <b>{{percentRate}} %</b><br><br>
+            <b>{{percentRate}} %</b><br><br><br>
         </div>
      </div>
     <br>

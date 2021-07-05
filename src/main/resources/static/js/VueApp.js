@@ -21,8 +21,10 @@ var creditCalculator = new Vue({
 
     },
     methods:{
-        getUrl: function () {
-           console.log(window.location.href+'calculateCredit' )
+        changeInputSum: function () {
+         if(this.currentCreditSum<100000) this.currentCreditSum = 100000;
+         if(this.currentCreditSum>5000000) this.currentCreditSum = 50000000;
+
         },
 
         calculateCreditInformation: function () {
