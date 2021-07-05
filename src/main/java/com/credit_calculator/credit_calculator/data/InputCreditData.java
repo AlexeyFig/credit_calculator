@@ -1,8 +1,5 @@
 package com.credit_calculator.credit_calculator.data;
 
-import lombok.Data;
-
-
 public class InputCreditData {
     private int creditSum;
     private int monthAmount;

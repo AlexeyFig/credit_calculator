@@ -167,7 +167,7 @@ blockquote, q {
     margin-left: 20px;
     margin-right: 20px;
     line-height: 1.7;
-    width: 180px;
+    width: 300px;
 }
 
 .calculated-credit-data{
@@ -194,3 +194,6 @@ blockquote, q {
 input[type='range']:hover{
     cursor: pointer;
     }
+input[type='range']{
+    width: 280px;
+}

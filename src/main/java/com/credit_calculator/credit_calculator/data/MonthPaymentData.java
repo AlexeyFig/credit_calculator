@@ -1,10 +1,5 @@
 package com.credit_calculator.credit_calculator.data;
 
-import lombok.Data;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-
 public class MonthPaymentData {
 
     private int numberOfPayment;

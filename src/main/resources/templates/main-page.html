@@ -34,7 +34,7 @@
         <div class="input-credit-data-block">
             Сумма кредита:<br>
             <b>{{currentCreditSum}} руб.</b><br>
-            <input type="range" name="cowbell" v-bind:min="minCreditSum" v-bind:max="maxCreditSum" v-model="currentCreditSum" step="10">
+            <input type="range" name="cowbell" v-bind:min="minCreditSum" v-bind:max="maxCreditSum" v-model="currentCreditSum" step="1000">
         </div>
         <div class="input-credit-data-block">
             Срок кредита:<br>
@@ -71,14 +71,14 @@
             <tr >
                 <th>№ </th>
                 <th>Месяц/год</th>
-                <th>Месячный платеж</th>
+                <th>Тело платежа</th>
                 <th>Проценты</th>
-                <th>Тело Кредита</th>
                 <th>Остаток долга</th>
+                <th>Месячный платеж</th>
             </tr>
             <tr v-for="item in responseCreditData" :key="item.paymentNumber">
-            <td>{{item.numberOfPayment }}</td><td>{{ item.paymentDate }}</td><td>{{ item.monthPayment }}</td>
-            <td>{{ item.percentPayment }}</td><td>{{ item.bodyPayment }} </td><td>{{ item.sumOfDept }}</td>
+            <td>{{item.numberOfPayment }}</td><td>{{ item.paymentDate }}</td><td>{{ item.bodyPayment }}</td>
+            <td>{{ item.percentPayment }}</td><td>{{ item.sumOfDept }} </td><td>{{ item.monthPayment }}</td>
             </tr>
         </table>
 
