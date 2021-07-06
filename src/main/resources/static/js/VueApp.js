@@ -21,14 +21,20 @@ var creditCalculator = new Vue({
 
     },
     methods:{
-        changeInputSum: function () {
+        checkInputSumRange: function () {
          if(this.currentCreditSum<100000) this.currentCreditSum = 100000;
          if(this.currentCreditSum>5000000) this.currentCreditSum = 50000000;
-
+         },
+        checkInputSumForCharacters: function(){
+            if(isNaN(this.currentCreditSum))  {
+            this.currentCreditSum=this.currentCreditSum.replace(/[^0-9]/g, '');
+            console.log('deleting characters')
+            }
         },
 
-        calculateCreditInformation: function () {
 
+
+        calculateCreditInformation: function () {
             this.requestCreditData = {
                 creditSum: this.currentCreditSum,
                 monthAmount: this.currentMonthAmount,

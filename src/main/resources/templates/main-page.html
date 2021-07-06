@@ -33,7 +33,7 @@
     <div id="input-credit-data">
         <div class="input-credit-data-block">
             Сумма кредита:<br>
-            <input type="text" v-on:change="changeInputSum" v-model.number.trim="currentCreditSum" > руб.
+            <input type="text" v-on:change="checkInputSumRange" v-on:input="checkInputSumForCharacters" v-model.trim="currentCreditSum" > руб.
             <input type="range" name="cowbell" v-bind:min="minCreditSum" v-bind:max="maxCreditSum" v-model="currentCreditSum" step="1000">
         </div>
         <div class="input-credit-data-block">
