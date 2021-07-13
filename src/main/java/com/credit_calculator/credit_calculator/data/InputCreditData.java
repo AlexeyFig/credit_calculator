@@ -19,7 +19,7 @@ public class InputCreditData {
         this.creditSum = creditSum;
     }
 
-    public int getmonthAmount() {
+    public int getMonthAmount() {
         return monthAmount;
     }
 

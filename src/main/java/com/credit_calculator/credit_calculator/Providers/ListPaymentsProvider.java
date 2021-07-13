@@ -27,12 +27,12 @@ public class ListPaymentsProvider implements ListPaymentProviderInterface {
         double sumOfDept = inputCreditData.getCreditSum();
         double generatedMonthPayment = generateMonthPayment(inputCreditData, percentRate);
 
-        for (int i=1; i <= inputCreditData.getmonthAmount(); i++){
+        for (int i=1; i <= inputCreditData.getMonthAmount(); i++){
             paymentDate = paymentDate.plusMonths(1);
-            MonthPaymentData newMontPaymentData = generateMontPaymentData(i,paymentDate,percentRate,sumOfDept
+            MonthPaymentData newMontPaymentInformation = generateMontPaymentInformation(i,paymentDate,percentRate,sumOfDept
                     ,generatedMonthPayment);
-            listMonthPayments.add(newMontPaymentData);
-            sumOfDept -= newMontPaymentData.getBodyPayment();
+            listMonthPayments.add(newMontPaymentInformation);
+            sumOfDept -= newMontPaymentInformation.getBodyPayment();
 
         }
 
@@ -46,12 +46,11 @@ public class ListPaymentsProvider implements ListPaymentProviderInterface {
 
     private double generateMonthPayment(InputCreditData inputcreditData, Double percentRate){
         return roundNumber.round(inputcreditData.getCreditSum() * percentRate /
-                (1-Math.pow((1+percentRate),-inputcreditData.getmonthAmount())));
+                (1-Math.pow((1+percentRate),-inputcreditData.getMonthAmount())));
     }
 
-    private MonthPaymentData generateMontPaymentData(int numberOfPayment, LocalDate paymentDate, double percentRate,
+    private MonthPaymentData generateMontPaymentInformation(int numberOfPayment, LocalDate paymentDate, double percentRate,
                                                      double sumOfDept, double generatedMonthPayment){
-
 
         String generatedPaymentDate =  generatePaymentDate(paymentDate);
 
