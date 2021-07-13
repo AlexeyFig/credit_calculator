@@ -32,7 +32,6 @@ var creditCalculator = new Vue({
             }
         },
 
-        
 
 
         calculateCreditInformation: function () {
